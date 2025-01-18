@@ -1,3 +1,5 @@
+import "./SendButton.css";
+
 interface SendButtonProps {
   onClick: () => void;
 }

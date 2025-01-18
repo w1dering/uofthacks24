@@ -46,7 +46,7 @@ const ChatPanel = () => {
 	};
 
 	const handleKeyPress = (e: React.KeyboardEvent) => {
-		if (e.key === 'Enter' && !e.shiftKey) {
+		if (e.key === "Enter" && !e.shiftKey) {
 			e.preventDefault();
 			handleSend();
 		}
@@ -54,11 +54,11 @@ const ChatPanel = () => {
 
 	return (
 		<div id="chat-panel">
-			<div>{displayText}</div>
-			<div className="input-container">
-				<TextBox 
-					value={message} 
-					onChange={setMessage} 
+			<div id="chat-panel-content-wrapper">{displayText}</div>
+			<div id="chat-panel-textbox-wrapper">
+				<TextBox
+					value={message}
+					onChange={setMessage}
 					onKeyDown={handleKeyPress}
 				/>
 				<SendButton onClick={handleSend} />
