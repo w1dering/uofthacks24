@@ -1,5 +1,21 @@
+import CharacterPanel from "./components/CharacterPanel/CharacterPanel";
+import ChatPanel from "./components/ChatPanel/ChatPanel";
+import Header from "./components/Header/Header";
+import OptionsPanel from "./components/OptionsPanel/OptionsPanel";
+
+import "/src/index.css";
+
 const App = () => {
-	return <h1>HELLO WORLD!</h1>;
+	return (
+		<>
+			<Header />
+			<div id="content">
+				<OptionsPanel />
+				<ChatPanel />
+				<CharacterPanel />
+			</div>
+		</>
+	);
 };
 
 export default App;

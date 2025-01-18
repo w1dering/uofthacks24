@@ -1,0 +1,5 @@
+#character-panel {
+	flex: 2 1 0;
+	height: 100%;
+    background-color: lightgray;
+}
