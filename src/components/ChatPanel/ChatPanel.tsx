@@ -5,8 +5,7 @@ import SendButton from "./SendButton";
 
 const ChatPanel = () => {
 	const [message, setMessage] = useState("");
-	const [displayText, setDisplayText] = useState("");
-	const [messages] = useState([
+	const [messages, setMessages] = useState([
 		{ 
 			role: "system", 
 			content: "You are Julius Caesar, a Roman general and statesman. You are known for your military conquests and political reforms. You are also known for your famous quote: 'Veni, vidi, vici'."
@@ -28,10 +27,10 @@ const ChatPanel = () => {
 			});
 
 			const data = await response.json();
-			return data.choices[0].message.content;
+			return data.choices[0].message;
 		} catch (error) {
 			console.error('Error calling OpenAI:', error);
-			return 'Error: Failed to get response';
+			return { role: 'assistant', content: 'Error: Failed to get response' };
 		}
 	};
 
@@ -41,8 +40,11 @@ const ChatPanel = () => {
 		const currentMessage = message;
 		setMessage("");
 		
+		const userMessage = { role: "user", content: currentMessage };
+		setMessages(prev => [...prev, userMessage]);
+
 		const response = await sendToOpenAI(currentMessage);
-		setDisplayText(response);
+		setMessages(prev => [...prev, response]);
 	};
 
 	const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -54,7 +56,15 @@ const ChatPanel = () => {
 
 	return (
 		<div id="chat-panel">
-			<div id="chat-panel-content-wrapper">{displayText}</div>
+			<div id="chat-panel-content-wrapper">
+				{messages.map((msg, index) => (
+					msg.role !== 'system' && (
+						<div key={index} className={`message ${msg.role}`}>
+							{msg.content}
+						</div>
+					)
+				))}
+			</div>
 			<div id="chat-panel-textbox-wrapper">
 				<TextBox
 					value={message}
