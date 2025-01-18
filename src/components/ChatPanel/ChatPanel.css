@@ -1,4 +1,7 @@
 #chat-panel {
     flex: 6 1 0;
     height: 100%;
+    width: 60%;
+    margin: auto;
+    background-color: white;
 }

@@ -1,0 +1,23 @@
+.chat-textbox {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateX(-10px);
+  width: calc(60% - 20px);
+  margin: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+  font-size: 16px;
+  min-height: 50px;
+  max-height: 150px;
+  outline: none;
+  background-color: white;
+}
+
+.chat-textbox:focus {
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+  background-color: rgb(238, 238, 238);
+}
