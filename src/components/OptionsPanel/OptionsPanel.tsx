@@ -6,9 +6,9 @@ const OptionsPanel = () => {
 	const options: string[] = ["Essay", "Fit"];
 	return (
 		<div id="options-panel">
-			<h1>Options</h1>
+			<h1 id="options-panel-title">Options</h1>
 			{options.map((item: string) => (
-				<Button content={item} fn={() => null} />
+				<Button className="options-button" content={item} fn={() => null} />
 			))}
 		</div>
 	);

@@ -1,5 +1,5 @@
 #header {
-    background-color: skyblue;
+    background-color: var(--blue-3);
     grid-area: header;
     width: 100%;
     height: 100%;
